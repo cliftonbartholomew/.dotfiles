@@ -2,6 +2,11 @@
 sudo apt update
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get install software-properties-common #gets add-apt-repository and other utils
+
+#install some utils
+sudo apt install git
+sudo apt install curl
 
 #setup get user
 git config --global user.email "cliftonbartholomew@gmail.com"
@@ -42,6 +47,12 @@ mkdir -p ~/.config/coc/extensions
 cd ~/.config/coc/extensions
 echo '{"dependencies":{}}'> package.json
 npm install coc-java --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+
+#install cc dependency for treesitter
+sudo apt-get install build-essential
+
+#install neovim package
+sudo npm install -g neovim
 
 #install maven
 sudo apt install maven
