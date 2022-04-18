@@ -29,15 +29,19 @@ set hidden
 """"""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+
 Plug 'gruvbox-community/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'yuezk/vim-js' "enables syntax highlighting for javascript
+Plug 'maxmellon/vim-jsx-pretty' " enables syntax highlighting for react jsx
+Plug 'jiangmiao/auto-pairs' " enables auto pairing of brackets and quotes
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+" Coc Installs
+let g:coc_global_extensions = ['coc-json', 'coc-snippets', 'coc-html-css-support', 'coc-html', 'coc-xml', 'coc-sh', 'coc-css' ]
 
 colorscheme gruvbox
 highlight Normal guibg=none

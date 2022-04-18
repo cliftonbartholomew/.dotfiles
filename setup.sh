@@ -23,12 +23,9 @@ sudo apt-get update
 sudo apt-get install neovim
 
 #symlink all the dotfiles
-rm -rf ~/.bashrc
 mkdir ~/.config
 mkdir ~/.config/nvim/
 ln -s ~/.dotfiles/init.vim ~/.config/nvim/
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
-source ~/.bashrc
 
 #install vimplug and the plugins
 sh -c 'curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
