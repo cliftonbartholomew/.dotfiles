@@ -18,9 +18,10 @@ sudo apt install default-jdk
 sudo apt install openjdk-11-source
 
 #install neovim
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install neovim
+curl -L -O https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz
+sudo tar xzvf nvim-linux64.tar.gz
+rm nvim-linux64.tar.gz
+sudo mv nvim-linux64/ /bin/
 
 #symlink all the dotfiles
 mkdir ~/.config
