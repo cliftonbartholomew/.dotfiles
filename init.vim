@@ -1,7 +1,11 @@
-""""""""""""""""""""""
-""""" UI settings """"
-""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""" SETS """""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set nobackup                                                        " Some servers have issues with backup files, see #649.
+set nowritebackup
 set noswapfile
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -24,106 +28,120 @@ set termguicolors
 set cmdheight=2
 
 set hidden
-""""""""""""""""""""""
-""""""" PLUGINS """"""
-""""""""""""""""""""""
+
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""" PLUGINS """"""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 call plug#begin('~/.vim/plugged')
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
+Plug 'preservim/nerdtree'                                           " file browsing
+Plug 'nvim-telescope/telescope.nvim'                                " fuzzy finder
+Plug 'nvim-lua/plenary.nvim'                                        " utility dependency for telescope
+Plug 'nvim-lua/popup.nvim'                                          " popup plugin for telescope
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'gruvbox-community/gruvbox'                                    " color scheme
 
-Plug 'gruvbox-community/gruvbox'
-Plug 'preservim/nerdtree'
-Plug 'yuezk/vim-js' "enables syntax highlighting for javascript
-Plug 'maxmellon/vim-jsx-pretty' " enables syntax highlighting for react jsx
-Plug 'jiangmiao/auto-pairs' " enables auto pairing of brackets and quotes
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}         " syntax highlighting and symbol management
+Plug 'yuezk/vim-js'                                                 " enables syntax highlighting for javascript
+Plug 'maxmellon/vim-jsx-pretty'                                     " enables syntax highlighting for react jsx
+
+Plug 'jiangmiao/auto-pairs'                                         " enables auto pairing of brackets and quotes
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                     " auto-completion and snippets
 call plug#end()
 
-" Coc Installs
+
+
+" Coc extensions
 let g:coc_global_extensions = ['coc-json', 'coc-snippets', 'coc-html-css-support', 'coc-html', 'coc-xml', 'coc-sh', 'coc-css' ]
 
+" set gruvbox
 colorscheme gruvbox
 highlight Normal guibg=none
 
-""""""""""""""""""""""
-""""""" REMAPS """""""
-""""""""""""""""""""""
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""" REMAPS """""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Leader key maps
+" a - code action on on next movement ( eg. caw )
+" b
+" c - code action or coc command (ca - code action on buffer, c - coc commands )
+" d - diagnostics list (can navigate through linting issues)
+" e - enable/disable coc extensions (to enable/disable for current buffer)
+" f - telescope (ff - find_files, fg - live_grep, fb - find_buffers, fh - find help_tags)
+" g - coc goto (gd - definition, gr - reference, gy - type definition, gi - implementation, gf - goto file under cursor)
+" h
+" i
+" j
+" k
+" l
+" m
+" n - nerdtree (nn - toggle nerdtree)
+" o - outline current buffer
+" p - pretty current buffer
+" q - quickfix (qf - quickfix)
+" r - rename/refactor in current project (rn - rename)
+" s
+" t
+" u
+" v - open vimrc
+" w
+" x
+" y
+" z
+
+" Other remaps
+" <M-e> fast wrap for auto-pairs
+
 let mapleader = " "
 inoremap jk <Esc>
+
+" MY remaps
 nnoremap <silent> <leader>v :e $MYVIMRC<cr>
 
-" Find files using Telescope command-line sugar.
+" Telescope remaps
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" Nerdtree
+" Nerdtree remaps
 nnoremap <leader>nn :NERDTreeToggle<cr>
 
-" coc
+" COC remaps
 inoremap <silent><expr> <c-space> coc#refresh()
-
 nnoremap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> gi <Plug>(coc-implementation)
 nnoremap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" open diagnostics
-" how to call CocDiagnostics
-
-
-" Symbol renaming.
 nnoremap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xnoremap <leader>f  <Plug>(coc-format-selected) " visual
-nnoremap <leader>f  <Plug>(coc-format-selected)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
+nnoremap <leader>p  ggVG<Plug>(coc-format-selected)
+nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>
 nnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
 inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
 inoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
 vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
 nmap <leader>a <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
 nmap <leader>ca  <Plug>(coc-codeaction)
-
-" Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Mappings for CoCList
-" Show all diagnostics.
 nnoremap <silent><nowait> <leader>d  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
 nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
-" Show commands.
 nnoremap <silent> <leader>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <leader>o  :CocOutline<CR>
 
 """"""""""""""""""""""
 """""" AUTOCMDS """"""
@@ -144,13 +162,6 @@ augroup END
 """ COC suggestions ""
 """"""""""""""""""""""
 
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
