@@ -57,3 +57,6 @@ sudo npm install -g neovim
 #install maven
 sudo apt install maven
 
+#add users
+useradd clifton
+usermod -aG sudo clifton
