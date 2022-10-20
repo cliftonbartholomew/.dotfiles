@@ -1,0 +1,9 @@
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+#ENVIRONMENT VARIABLES
+export MYVIMRC=~/.dotfiles/init.vim
+export PATH=/bin/nvim/bin/:$PATH
+export PATH=/bin/nvim-linux64/bin/:$PATH

@@ -1,6 +1,6 @@
-""""""""""""""""""""""
-""""" UI settings """"
-""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""" SETS """""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set noswapfile
 set tabstop=4 softtabstop=4
@@ -23,135 +23,135 @@ set signcolumn=yes
 set termguicolors
 set cmdheight=2
 
+" To learn
 set hidden
-""""""""""""""""""""""
-""""""" PLUGINS """"""
-""""""""""""""""""""""
+set updatetime=300
+set shortmess+=c
+set nobackup                                                        " Some servers have issues with backup files, see #649.
+set nowritebackup
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""" PLUGINS """"""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 call plug#begin('~/.vim/plugged')
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'gruvbox-community/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'preservim/nerdtree'                                           " file browsing
+Plug 'nvim-telescope/telescope.nvim'                                " fuzzy finder
+Plug 'nvim-lua/plenary.nvim'                                        " utility dependency for telescope
+Plug 'nvim-lua/popup.nvim'                                          " popup plugin for telescope
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}         " requirement for telescope
+
+Plug 'gruvbox-community/gruvbox'                                    " color scheme
+
+Plug 'maxmellon/vim-jsx-pretty'                                     " enables syntax highlighting for react jsx
+
+Plug 'jiangmiao/auto-pairs'                                         " enables auto pairing of brackets and quotes
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                     " auto-completion and snippets
 call plug#end()
 
+" Coc extensions
+let g:coc_global_extensions = ['coc-lightbulb', 'coc-java', 'coc-git', 'coc-html', 'coc-json', 'coc-snippets', 'coc-jedi',  'coc-xml', 'coc-sh', 'coc-css', 'coc-sql', 'coc-tsserver', 'coc-prettier']
+
+" set gruvbox
 colorscheme gruvbox
 highlight Normal guibg=none
 
-""""""""""""""""""""""
-""""""" REMAPS """""""
-""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""" REMAPS """""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Leader key maps
+" a - code action on on next movement ( eg. caw )
+" b
+" c - code action or coc command (ca - code action on buffer, c - coc commands )
+" d - diagnostics list (can navigate through linting issues)
+" e - enable/disable coc extensions (to enable/disable for current buffer)
+" f - telescope (ff - find_files, fg - live_grep, fb - find_buffers, fh - find help_tags)
+" g - coc goto (gd - definition, gr - reference, gy - type definition, gi - implementation, gf - goto file under cursor)
+" h
+" i
+" j
+" k
+" l
+" m
+" n - nerdtree (nn - toggle nerdtree)
+" o - outline current buffer
+" p - pretty current buffer
+" q - quickfix (qf - quickfix)
+" r - rename/refactor in current project (rn - rename)
+" s
+" t
+" u
+" v - open vimrc
+" w
+" x
+" y
+" z
+
+" Other remaps
+" <M-e> fast wrap for auto-pairs
+
 let mapleader = " "
 inoremap jk <Esc>
-nnoremap <silent> <leader>v :e $MYVIMRC<cr>
 
-" Find files using Telescope command-line sugar.
+" Homemade remaps
+nnoremap <silent> <leader>v :e $MYVIMRC<cr>
+nmap <M-Right> :vertical resize +1<CR>
+nmap <M-Left> :vertical resize -1<CR>
+nmap <M-Down> :resize +1<CR>
+nmap <M-Up> :resize -1<CR>
+
+" Auto-pairs remaps (note: <M-?> is for alt)
+" <M-e> fast wrap
+" <M-}> fast wrap around closed pair
+" <M-n> jump to next closed pair
+" See github.com/jiangmiao/auto-pairs for more
+
+" Telescope remaps
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" Nerdtree
+" Nerdtree remaps
 nnoremap <leader>nn :NERDTreeToggle<cr>
 
-" coc
+" COC remaps
 inoremap <silent><expr> <c-space> coc#refresh()
-
 nnoremap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> gi <Plug>(coc-implementation)
 nnoremap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" open diagnostics
-" how to call CocDiagnostics
-
-
-" Symbol renaming.
 nnoremap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xnoremap <leader>f  <Plug>(coc-format-selected) " visual
-nnoremap <leader>f  <Plug>(coc-format-selected)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
+nnoremap <leader>p  ggVG<Plug>(coc-format-selected)
+" float navigation
+nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>
 nnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
 inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
 inoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
 vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
 nmap <leader>a <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
 nmap <leader>ca  <Plug>(coc-codeaction)
-
-" Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Mappings for CoCList
-" Show all diagnostics.
 nnoremap <silent><nowait> <leader>d  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
 nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
-" Show commands.
 nnoremap <silent> <leader>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
-
-""""""""""""""""""""""
-"""""" AUTOCMDS """"""
-""""""""""""""""""""""
-" Remove all whitespace when saving a buffer
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-augroup MY_GROUP
-    autocmd!
-    autocmd BufWritePre * :call TrimWhitespace()
-augroup END
-
-""""""""""""""""""""""
-""" COC suggestions ""
-""""""""""""""""""""""
-
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
+nnoremap <silent><nowait> <leader>o  :CocOutline<CR>
+" new text objects
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -160,18 +160,57 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""" AUTOCMDS """""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+augroup MY_GROUP
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+    autocmd BufWritePost *.vim source %
+augroup END
+
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup end
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""" Functions """"""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -183,28 +222,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-"
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-
-
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
