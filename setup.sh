@@ -33,7 +33,7 @@ mkdir ~/.config/nvim/
 ln -s ~/.dotfiles/init.vim ~/.config/nvim/
 rm ~/.bashrc
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
-source ~/.basrch
+source ~/.bashrc
 
 #install vimplug and the plugins
 sh -c 'curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
