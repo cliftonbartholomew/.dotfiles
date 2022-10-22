@@ -17,6 +17,10 @@ sudo apt install default-jre
 sudo apt install default-jdk
 sudo apt install openjdk-11-source
 
+#install python additionals
+sudo apt install python3-pip
+pip install pynvim
+
 #install neovim
 curl -L -O https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz
 sudo tar xzvf nvim-linux64.tar.gz

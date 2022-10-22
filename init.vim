@@ -129,6 +129,7 @@ nnoremap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <leader>rn <Plug>(coc-rename)
 nnoremap <leader>p  ggVG<Plug>(coc-format-selected)
+
 " float navigation
 nnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>
 nnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
@@ -136,6 +137,7 @@ inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float
 inoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>"
 vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
+
 nmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>ca  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
@@ -143,6 +145,7 @@ nnoremap <silent><nowait> <leader>d  :<C-u>CocList diagnostics<cr>
 nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
 nnoremap <silent> <leader>c  :<C-u>CocList commands<cr>
 nnoremap <silent><nowait> <leader>o  :CocOutline<CR>
+
 " new text objects
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
