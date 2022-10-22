@@ -59,3 +59,5 @@ fi
 
 #ENVIRONMENT VARIABLES
 export MYVIMRC=~/.dotfiles/init.vim
+export PATH=/bin/nvim/bin/:$PATH
+export PATH=/bin/nvim-linux64/bin/:$PATH
