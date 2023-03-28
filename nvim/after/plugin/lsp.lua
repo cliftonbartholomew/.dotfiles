@@ -52,7 +52,7 @@ end)
 
 lsp.setup()
 
-
+-- Default keybindings for LSP
 -- K: Displays hover information about the symbol under the cursor in a floating window. See :help vim.lsp.buf.hover().
 -- gd: Jumps to the definition of the symbol under the cursor. See :help vim.lsp.buf.definition().
 -- gD: Jumps to the declaration of the symbol under the cursor. Some servers don't implement this feature. See :help vim.lsp.buf.declaration().
