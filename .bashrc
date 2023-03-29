@@ -61,3 +61,7 @@ fi
 export MYVIMRC=~/.dotfiles/init.vim
 export PATH=/bin/nvim/bin/:$PATH
 export PATH=/bin/nvim-linux64/bin/:$PATH
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+

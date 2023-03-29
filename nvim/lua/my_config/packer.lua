@@ -1,56 +1,65 @@
 vim.cmd "packadd packer.nvim"
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-
-	-- A fancy colour-scheme (set background to transparent)
+    -- A fancy colour-scheme (set background to transparent)
     use { "ellisonleao/gruvbox.nvim" }
 
-	-- Treesitter breaks files into tokens that are used for better colouring
-	-- See :TSPlaygroundToggle
-	use('nvim-treesitter/nvim-treesitter', {run= ':TSUpdate'})
-	use('nvim-treesitter/playground')
+    -- Treesitter breaks files into tokens that are used for better colouring
+    -- See :TSPlaygroundToggle
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use('nvim-treesitter/playground')
 
-	-- grep and find files
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+    -- file explorer
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+    }
 
-	-- mark and quickly move between files
-	use('ThePrimeagen/harpoon')
+    -- autopairs
+    use('windwp/nvim-autopairs')
 
-	-- see past state of a file for days
-	use('mbbill/undotree')
+    -- grep and find files
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
-	-- git wrapper for nvim
-	use('tpope/vim-fugitive')
+    -- mark and quickly move between files
+    use('ThePrimeagen/harpoon')
 
-	-- LSP manager
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v1.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{'williamboman/mason.nvim'},           -- Tool to install LSP use :Mason
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+    -- see past state of a file for days
+    use('mbbill/undotree')
 
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},         -- Required
-			{'hrsh7th/cmp-nvim-lsp'},     -- Required
-			{'hrsh7th/cmp-buffer'},       -- Optional
-			{'hrsh7th/cmp-path'},         -- Optional
-			{'saadparwaiz1/cmp_luasnip'}, -- Optional
-			{'hrsh7th/cmp-nvim-lua'},     -- Optional
-            { "zbirenbaum/copilot.lua" },  -- Optional
+    -- git wrapper for nvim
+    use('tpope/vim-fugitive')
 
-			-- Snippets
-			{'L3MON4D3/LuaSnip'},             -- Required
-			{'rafamadriz/friendly-snippets'}, -- Optional
-		}
-	}
+    -- LSP manager
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v1.x',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Tool to install LSP use :Mason
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
-end)	
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },         -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
+            { 'hrsh7th/cmp-buffer' },       -- Optional
+            { 'hrsh7th/cmp-path' },         -- Optional
+            { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
+            { "zbirenbaum/copilot.lua" },   -- Optional
+
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },             -- Required
+            { 'rafamadriz/friendly-snippets' }, -- Optional
+        }
+    }
+end)
