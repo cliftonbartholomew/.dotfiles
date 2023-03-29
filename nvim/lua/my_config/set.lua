@@ -37,12 +37,6 @@ vim.cmd("colorscheme gruvbox")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- transparent background
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
--- plugin jianmiao/auto-pairs
--- and remaps for auto-pairs
--- plugin prettier
--- plugin nerdtree
--- learn last remaps in remap folder
--- learn autocomplete and language server detault rempas. add as comments in remap
 -- remaps resize using alt and arrow keys
 
 
