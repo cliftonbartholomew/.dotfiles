@@ -1,6 +1,6 @@
--- vim.opt and vim.o access vim options 
+-- vim.opt and vim.o access vim options
 -- see :help options for option list
--- vim.g is global variables 
+-- vim.g is global variables
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -36,7 +36,3 @@ vim.opt.termguicolors = true
 vim.cmd("colorscheme gruvbox")
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- transparent background
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
--- remaps resize using alt and arrow keys
-
-

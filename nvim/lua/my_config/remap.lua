@@ -35,6 +35,7 @@ vim.keymap.set("n", "<leader>c", "<cmd>e ~/.config/nvim/lua/my_config/packer.lua
 vim.keymap.set({ "", "!" }, "<C-s>", "<ESC>:w<CR>", { noremap = true })
 
 -- Easier windows navigations
+vim.keymap.set({ "n", "x" }, "<C-w>", "<C-W><C-w>", { noremap = true })
 vim.keymap.set({ "n", "x" }, "<C-h>", "<C-W><C-h>", { noremap = true })
 vim.keymap.set({ "n", "x" }, "<C-j>", "<C-W><C-j>", { noremap = true })
 vim.keymap.set({ "n", "x" }, "<C-k>", "<C-W><C-k>", { noremap = true }) -- Careful of conflict with LSP (implemented in LSP section)
