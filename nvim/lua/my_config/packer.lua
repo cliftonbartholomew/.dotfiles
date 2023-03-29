@@ -23,6 +23,9 @@ return require('packer').startup(function(use)
     -- autopairs
     use('windwp/nvim-autopairs')
 
+    -- floaterm
+    use('voldikss/vim-floaterm')
+
     -- grep and find files
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',

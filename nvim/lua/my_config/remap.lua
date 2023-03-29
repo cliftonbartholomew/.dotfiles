@@ -10,7 +10,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- yank to clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>c", "<cmd>e ~/.config/nvim/lua/my_config/packer.lua<CR>");
 
+-- terminal mode remap Esc
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n><cmd>FloatermToggle<CR>")
