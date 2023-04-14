@@ -7,22 +7,18 @@ sudo apt-get install software-properties-common #gets add-apt-repository and oth
 #install some utils
 sudo apt install git
 sudo apt install curl
+sudo apt install ripgrep
+sudo apt install zip
+sudo apt install luarocks # lua package manager
+sudo apt install cmake # dependency for luaformatter
 
-#setup get user
+#setup git user
 git config --global user.email "cliftonbartholomew@gmail.com"
 git config --global user.name "cliftonbartholomew"
-
-#install java and java source (source enables javadocs)
-sudo apt install default-jre
-sudo apt install default-jdk
-sudo apt install openjdk-11-source
-
-#install python additionals
-sudo apt install python3-pip
-pip install pynvim
+git config --global --add url."git@github.com:".insteadOf "https://github.com/"
 
 #install neovim
-curl -L -O https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.tar.gz
+curl -L -O  https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
 sudo tar xzvf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
 sudo mv nvim-linux64/ /bin/
@@ -31,37 +27,15 @@ sudo mv nvim-linux64/ /bin/
 mkdir ~/.config
 mkdir ~/.config/nvim/
 ln -s ~/.dotfiles/init.vim ~/.config/nvim/
-rm ~/.bashrc
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
-source ~/.bashrc
+#rm ~/.bashrc
+#ln -s ~/.dotfiles/.bashrc ~/.bashrc
+#source ~/.bashrc
 
-#install vimplug and the plugins
-sh -c 'curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-nvim --headless +PlugInstall +qall
+#download packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim  ~/.local/share/nvim/site/pack/packer/start/packer.nvim-linux64
 
-#install telescope dependencies
-sudo apt-get install ripgrep
-sudo apt install fd-find
 
-#install coc dependencies
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-#install java lsp in coc
-mkdir -p ~/.config/coc/extensions
-cd ~/.config/coc/extensions
-echo '{"dependencies":{}}'> package.json
-npm install coc-java --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
-
-#install cc dependency for treesitter
-sudo apt-get install build-essential
-
-#install neovim package
-sudo npm install -g neovim
-
-#install maven
-sudo apt install maven
-
-#add users
-useradd clifton
-usermod -aG sudo clifton
+#install python additionals
+sudo apt install python3
+sudo apt install python3-pip
+sudo apt install virtualenv
