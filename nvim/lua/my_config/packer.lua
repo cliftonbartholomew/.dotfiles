@@ -23,6 +23,9 @@ return require('packer').startup(function(use)
     -- autopairs
     use('windwp/nvim-autopairs')
 
+    -- context
+    use('wellle/context')
+
     -- floaterm
     use('voldikss/vim-floaterm')
 
