@@ -13,6 +13,9 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-treesitter/playground')
 
+    -- context
+    use('nvim-treesitter/nvim-treesitter-context')
+
     -- file explorer
     use {
         'nvim-tree/nvim-tree.lua',
@@ -23,9 +26,6 @@ return require('packer').startup(function(use)
 
     -- autopairs
     use('windwp/nvim-autopairs')
-
-    -- context
-    use('wellle/context')
 
     -- floaterm
     use('voldikss/vim-floaterm')
