@@ -25,6 +25,12 @@ Get the public key and paste in github:
 cat ~/.ssh/id_rsa.pub
 ```
 
+install git
+```bash
+sudo apt-get git
+```
+
+
 install .dotfiles
 ```bash
 git clone git@github.com:cliftonbartholomew/.dotfiles.git 
