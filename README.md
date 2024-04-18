@@ -27,7 +27,8 @@ cat ~/.ssh/id_rsa.pub
 
 install git
 ```bash
-sudo apt-get git
+sudo apt-get update
+sudo apt install git
 ```
 
 
