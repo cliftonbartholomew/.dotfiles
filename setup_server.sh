@@ -1,7 +1,6 @@
 #install firewall
 sudo apt install ufw
-sudo systemctl start ufw
-sudo systemctl enable ufw
+sudo ufw enable
 sudo ufw allow ssh #allow ssh from anywhere
 
 #stop apache
