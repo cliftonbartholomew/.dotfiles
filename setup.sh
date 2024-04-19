@@ -31,7 +31,7 @@ ln -s ~/.dotfiles/.bashrc ~/.bash_profile
 #install python additionals
 sudo apt install python3
 sudo apt install python3-pip
-sudo apt install virtualenv
+sudo apt install python3-venv
 
 #download packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\

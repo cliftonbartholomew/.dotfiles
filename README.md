@@ -37,9 +37,10 @@ install .dotfiles
 git clone git@github.com:cliftonbartholomew/.dotfiles.git 
 ```
 
-run setup
+run setup files
 ```bash
 yes | .dotfiles/setup.sh
+yes | .dotfiles/setup_server.sh
 ```
 
 source .bashrc
