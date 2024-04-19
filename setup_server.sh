@@ -1,6 +1,5 @@
 #install firewall
 sudo apt install ufw
-sudo ufw enable
 sudo ufw allow ssh #allow ssh from anywhere
 
 #stop apache
@@ -38,3 +37,6 @@ sudo rm /var/www/html/*
 
 #create venv folder
 mkdir ~/.venv
+
+#may sever connection. Reboot server.
+sudo ufw enable
