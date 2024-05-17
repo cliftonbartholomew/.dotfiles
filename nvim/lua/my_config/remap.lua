@@ -1,4 +1,4 @@
--- move highlighted rows up and down
+-- move rows up and down
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", {})
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv", {})
 vim.keymap.set("n", "<M-j>", ":m .+1<CR>==", {})
@@ -17,9 +17,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- close windows
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { noremap = true })
-
 -- increase buffer size with alt-arrows
 vim.keymap.set("n", "<M-Up>", ":resize -2<CR>", { noremap = true })
 vim.keymap.set("n", "<M-Down>", ":resize +2<CR>", { noremap = true })
@@ -28,11 +25,9 @@ vim.keymap.set("n", "<M-Right>", ":vertical resize +2<CR>", { noremap = true })
 
 -- yank to clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("n", "<leader>c", "<cmd>e ~/.config/nvim/lua/my_config/packer.lua<CR>");
 
--- Save
-vim.keymap.set({ "", "!" }, "<C-s>", "<ESC>:w<CR>", { noremap = true })
+-- escape with jk
+vim.keymap.set("i", "jk", "<Esc>")
 
 -- Easier windows navigations
 vim.keymap.set({ "n", "x" }, "<C-w>", "<C-W><C-w>", { noremap = true })

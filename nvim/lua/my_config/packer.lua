@@ -45,6 +45,9 @@ return require('packer').startup(function(use)
     -- git wrapper for nvim
     use('tpope/vim-fugitive')
 
+    -- copilot chat
+    use('CopilotC-Nvim/CopilotChat.nvim')
+
     -- LSP manager
     use {
         'VonHeikemen/lsp-zero.nvim',
