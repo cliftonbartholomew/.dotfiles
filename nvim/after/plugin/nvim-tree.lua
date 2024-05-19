@@ -10,6 +10,8 @@ vim.opt.termguicolors = true
 -- empty setup using defaults
 require("nvim-tree").setup()
 
-vim.keymap.set("n", "<leader>nn", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>nn", ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "toggle NvimTree" })
+vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>",
+    { noremap = true, silent = true, desc = "find file in NvimTree" })
 
 -- keymap for help popup is: g?

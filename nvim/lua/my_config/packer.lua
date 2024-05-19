@@ -24,6 +24,12 @@ return require('packer').startup(function(use)
         },
     }
 
+    -- whichkey for keybindings
+    use('folke/which-key.nvim')
+
+    -- wilder for better command line completion
+    use('gelguy/wilder.nvim')
+
     -- autopairs
     use('windwp/nvim-autopairs')
 
@@ -32,7 +38,7 @@ return require('packer').startup(function(use)
 
     -- grep and find files
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
@@ -46,12 +52,18 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
 
     -- copilot chat
-    use('CopilotC-Nvim/CopilotChat.nvim')
+    use { 'CopilotC-Nvim/CopilotChat.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-lua/popup.nvim',
+            'nvim-telescope/telescope.nvim',
+        },
+        branch = 'canary',
+    }
 
     -- LSP manager
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },             -- Required

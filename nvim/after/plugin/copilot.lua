@@ -29,8 +29,8 @@ require("CopilotChat").setup({
         width = 0.5,                              -- fractional width of parent, or absolute width in columns when > 1
         height = 0.5,                             -- fractional height of parent, or absolute height in rows when > 1
         -- Options below only apply to floating windows
-        relative = 'cursor',                      -- 'editor', 'win', 'cursor', 'mouse'
-        border = 'single',                        -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
+        relative = 'editor',                      -- 'editor', 'win', 'cursor', 'mouse'
+        border = 'rounded',                       -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
         row = nil,                                -- row position of the window, default is centered
         col = nil,                                -- column position of the window, default is centered
         title = 'Copilot Chat',                   -- title of chat window
@@ -128,4 +128,5 @@ require("CopilotChat").setup({
 })
 
 -- set mapping to open chat window
-vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChatToggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChatToggle<CR>",
+    { desc = "open chat", silent = true, noremap = true })
