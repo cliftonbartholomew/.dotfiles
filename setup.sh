@@ -11,10 +11,11 @@ sudo apt install zip # for zipping files
 sudo apt install luarocks # lua package manager
 sudo apt install cmake # dependency for luaformatter
 
-#setup git user
+#setup git config
 git config --global user.email "cliftonbartholomew@gmail.com"
 git config --global user.name "cliftonbartholomew"
 git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+git config --global pull.rebase true
 
 #install neovim
 curl -L -O  https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
