@@ -39,7 +39,3 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
-
-#run PackerSync
-/bin/nvim-linux64/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
