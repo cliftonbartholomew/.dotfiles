@@ -176,10 +176,11 @@ return {
     {
         "tpope/vim-fugitive",
         config = function()
-            vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { noremap = true, silent = true, desc = "open git status" })
-            vim.keymap.set("n", "<leader>gc", vim.cmd.GitCommit, { noremap = true, silent = true, desc = "git commit" })
-            vim.keymap.set("n", "<leader>gp", vim.cmd.GitPush, { noremap = true, silent = true, desc = "git push" })
-            vim.keymap.set("n", "<leader>gP", vim.cmd.GitPull, { noremap = true, silent = true, desc = "git pull" })
+            vim.api.nvim_set_keymap('n', '<leader>gp', ':Git push<CR>',
+                { noremap = true, silent = true, desc = "git push" })
+            vim.api.nvim_set_keymap('n', '<leader>gg', ':G<CR>', { noremap = true, silent = true, desc = "git status" })
+            vim.api.nvim_set_keymap('n', '<leader>gd', ':Gvdiffsplit<CR>',
+                { noremap = true, silent = true, desc = "git diff" })
         end
     },
 }
