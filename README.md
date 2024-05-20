@@ -51,3 +51,8 @@ register copilot
 ```bash
 :Copilot auth
 ```
+
+make sure win32yank is install in windows
+```bash
+winget install win32yank
+```
