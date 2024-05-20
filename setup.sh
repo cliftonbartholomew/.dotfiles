@@ -4,9 +4,10 @@ sudo apt-get update
 sudo apt-get upgrade
 
 #install some utils
-sudo apt install curl
-sudo apt install ripgrep
-sudo apt install zip
+sudo apt install curl # for downloading stuff
+sudo apt install ripgrep # telescope dependency
+sudo apt install fd-find # telescope dependency
+sudo apt install zip # for zipping files
 sudo apt install luarocks # lua package manager
 sudo apt install cmake # dependency for luaformatter
 

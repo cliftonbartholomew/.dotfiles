@@ -30,7 +30,6 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { noremap = true, desc = "yan
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "escape with jk" })
 
 -- Easier windows navigations
-vim.keymap.set({ "n", "x" }, "<C-w>", "<C-W><C-w>", { noremap = true, desc = "move to next window" })
 vim.keymap.set({ "n", "x" }, "<C-h>", "<C-W><C-h>", { noremap = true, desc = "move to left window" })
 vim.keymap.set({ "n", "x" }, "<C-j>", "<C-W><C-j>", { noremap = true, desc = "move to down window" })
 vim.keymap.set({ "n", "x" }, "<C-k>", "<C-W><C-k>", { noremap = true, desc = "move to up window" })
