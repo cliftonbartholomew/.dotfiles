@@ -33,6 +33,3 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
 vim.opt.termguicolors = true
-vim.cmd("colorscheme gruvbox")
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- transparent background
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

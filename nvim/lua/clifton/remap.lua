@@ -35,3 +35,9 @@ vim.keymap.set({ "n", "x" }, "<C-h>", "<C-W><C-h>", { noremap = true, desc = "mo
 vim.keymap.set({ "n", "x" }, "<C-j>", "<C-W><C-j>", { noremap = true, desc = "move to down window" })
 vim.keymap.set({ "n", "x" }, "<C-k>", "<C-W><C-k>", { noremap = true, desc = "move to up window" })
 vim.keymap.set({ "n", "x" }, "<C-l>", "<C-W><C-l>", { noremap = true, desc = "move to right window" })
+
+-- Copilot
+vim.api.nvim_set_keymap('n', '<leader>cc', ':CopilotChat<CR>', {noremap = true, silent = true})
+
+
+
