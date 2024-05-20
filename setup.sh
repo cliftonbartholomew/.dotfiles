@@ -35,9 +35,6 @@ sudo apt install python3
 sudo apt install python3-pip
 sudo apt install python3-venv
 
-#download packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
+#install nodejs
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
