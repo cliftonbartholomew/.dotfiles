@@ -17,10 +17,10 @@ ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.bashrc ~/.bash_profile
 
 # install apps
-~/.dotfiles/install/apps/utils.sh # must be first
-~/.dotfiles/install/apps/neovim.sh
-~/.dotfiles/install/apps/python.sh
-~/.dotfiles/install/apps/nodejs.sh
+source ~/.dotfiles/install/apps/utils.sh # must be first
+source ~/.dotfiles/install/apps/neovim.sh
+source ~/.dotfiles/install/apps/python.sh
+source ~/.dotfiles/install/apps/nodejs.sh
 
 # all distros require venv
 mkdir ~/.venv

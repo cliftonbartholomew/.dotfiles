@@ -1,5 +1,3 @@
-~/.dotfiles/install/setup_common.sh
-
 # install apps
 ~/.dotfiles/install/apps/nginx.sh
 ~/.dotfiles/install/apps/daphne.sh
