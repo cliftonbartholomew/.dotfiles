@@ -29,10 +29,6 @@ return {
                 ensure_installed = {
                     -- language servers
                     "lua_ls", "pyright", "tsserver",
-                    -- formatters
-                    -- "luaformatter", "black", "prettier",
-                    -- linters
-                    -- "luacheck", "pylint", "eslint_d",
                 },
                 handlers = {
                     function(server_name) -- default handler (optional)
@@ -151,4 +147,27 @@ return {
         end
     },
 
+    -- mason tool installer (auto install formatters, linters, etc.)
+    {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        config = function()
+            require("mason-tool-installer").setup({
+                ensure_installed = {
+                    -- formatters
+                    "luaformatter", "black", "prettier",
+                    -- linters
+                    "luacheck", "pylint", "eslint_d",
+                },
+                auto_update = true,
+                start_delay = 3000,
+                run_on_start = true,
+                integrations = {
+                    ["mason-lspconfig"] = true,
+                    ["mason-null-ls"] = true,
+                    ["mason-nvim-dap"] = true,
+                }
+
+            })
+        end
+    }
 }
