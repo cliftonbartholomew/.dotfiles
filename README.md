@@ -39,7 +39,6 @@ git clone git@github.com:cliftonbartholomew/.dotfiles.git
 
 run setup files
 ```bash
-yes | .dotfiles/install/setup_common.sh
 .dotfiles/install/setup_prod.sh
 .dotfiles/install/setup_dev.sh
 ```
