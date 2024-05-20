@@ -5,7 +5,7 @@ echo "####### Installing postgres ###################"
 echo "###############################################"
 echo ""
 echo ""
-sudo apt install postgresql postgresql-contrib
+yes | sudo apt install postgresql postgresql-contrib
 sudo systemctl start postgresql
 sudo systemctl enable postgresql #start on boot
 

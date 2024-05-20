@@ -1,7 +1,7 @@
 #update apt
-sudo apt update
-sudo apt-get update
-sudo apt-get upgrade
+yes | sudo apt update
+yes | sudo apt-get update
+yes | sudo apt-get upgrade
 
 # configure git
 git config --global user.email "cliftonbartholomew@gmail.com"
