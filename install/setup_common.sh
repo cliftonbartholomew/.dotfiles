@@ -1,3 +1,12 @@
+#!/bin/bash
+
+echo ""
+echo ""
+echo "###############################################"
+echo "####### Setting up common #####################"
+echo "###############################################"
+echo ""
+echo ""
 #update apt
 yes | sudo apt update
 yes | sudo apt-get update
