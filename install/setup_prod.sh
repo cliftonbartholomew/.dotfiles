@@ -10,6 +10,7 @@ echo "####### Setting up prod environment ###########"
 echo "###############################################"
 echo ""
 echo ""
+
 # install apps
 source ~/.dotfiles/install/apps/nginx.sh
 source ~/.dotfiles/install/apps/daphne.sh

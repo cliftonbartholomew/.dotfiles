@@ -10,5 +10,6 @@ echo "####### Setting up dev environment ############"
 echo "###############################################"
 echo ""
 echo ""
+
 # install apps
 source ~/.dotfiles/install/apps/postgres_dev.sh
