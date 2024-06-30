@@ -1,5 +1,5 @@
 return {
-	-- git
+	-- fugitive
 	{
 		"tpope/vim-fugitive",
 		config = function()
@@ -28,6 +28,14 @@ return {
 				":Gvdiffsplit<CR>",
 				{ noremap = true, silent = true, desc = "git diff" }
 			)
+		end,
+	},
+
+	-- git signs
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup({})
 		end,
 	},
 }
