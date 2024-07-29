@@ -5,12 +5,12 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "hrsh7th/nvim-cmp",
-            "hrsh7th/cmp-nvim-lsp",
-            "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
-            "j-hui/fidget.nvim",
-            "onsails/lspkind.nvim",
+            "hrsh7th/nvim-cmp", -- completion
+            "hrsh7th/cmp-nvim-lsp", -- completion
+            "L3MON4D3/LuaSnip", -- snippets
+            "saadparwaiz1/cmp_luasnip", -- snippets
+            "j-hui/fidget.nvim", -- lsp notifications
+            "onsails/lspkind.nvim", -- lsp icons
         },
         config = function()
             local cmp = require("cmp")
@@ -25,9 +25,7 @@ return {
                     -- language servers
                     "lua_ls",
                     "pyright",
-                    "tsserver",
-                    "html",
-                    "cssls",
+                    "emmet_language_server",
                 },
                 handlers = {
                     function(server_name) -- default handler (optional)
@@ -43,9 +41,9 @@ return {
                             capabilities = capabilities,
                             settings = {
                                 Lua = {
-                                    runtime = { version = "Lua 5.1" },
+                                    runtime = { version = "LuaJIT" },
                                     diagnostics = {
-                                        globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
+                                        globals = { "vim" },
                                     },
                                 },
                             },
@@ -107,6 +105,7 @@ return {
         end,
     },
 
+    -- conform and nvim-lint is an alternative
     -- null-ls for integrating linters and formatters
     {
         "nvimtools/none-ls.nvim",
