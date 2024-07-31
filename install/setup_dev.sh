@@ -13,3 +13,5 @@ echo ""
 
 # install apps
 source ~/.dotfiles/install/apps/postgres_dev.sh
+ln -s ~/.dotfiles/ssh_production.sh ~/ssh_production.sh
+ln -s ~/.dotfiles/ssh_staging.sh ~/ssh_staging.sh
