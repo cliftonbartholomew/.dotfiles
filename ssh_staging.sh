@@ -1,3 +1,3 @@
 # input username
 read -p "Enter username: " username
-ssh $username@102.130.123.209
+ssh -i ~/.ssh/id_rsa $username@102.130.123.209
