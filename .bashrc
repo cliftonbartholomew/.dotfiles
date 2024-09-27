@@ -32,6 +32,7 @@ alias gcb='git checkout -b'
 function run_developed_demo() {
     source ~/.venv/developed-demo/bin/activate
     cd ~/developed-demo/src
+    sudo service postgresql start
     python manage.py runserver --settings=developed.settings.dev
 }
 
