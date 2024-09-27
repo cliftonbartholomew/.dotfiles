@@ -1,10 +1,39 @@
-alias ll='ls -alF'
+# tools
 alias nvim='/bin/nvim-linux64/bin/nvim'
-
 alias python='python3'
 alias pip='pip3'
 
-alias ghs='gh copilot suggest'
-alias ghe='gh copilot explain'
+# copilot
+alias cs='gh copilot suggest'
+alias ce='gh copilot explain'
 
-alias deved='cd ~/developed-demo/ && nvim'
+# movement files and folders
+alias ll='ls -alF'
+alias ~='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# ssh
+alias sshs='~/.dotfiles/ssh_staging.sh'
+alias sshp='~/.dotfiles/ssh_production.sh'
+
+# git aliases
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gpl='git pull'
+alias gb='git branch'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+
+
+# developed dev commands
+function run_developed_demo() {
+    source ~/.venv/developed-demo/bin/activate
+    cd ~/developed-demo/src
+    python manage.py runserver --settings=developed.settings.dev
+}
+
+alias dr='run_developed_demo' # developed run
+alias de='cd ~/developed-demo/ && nvim' # developed edit
