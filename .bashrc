@@ -37,4 +37,4 @@ function run_developed_demo() {
 }
 
 alias dr='run_developed_demo' # developed run
-alias de='cd ~/developed-demo/ && nvim' # developed edit
+alias de='cd ~/developed-demo/ && source ~/.venv/developed-demo/bin/activate && nvim' # developed edit
