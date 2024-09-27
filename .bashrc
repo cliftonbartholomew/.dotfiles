@@ -6,3 +6,5 @@ alias pip='pip3'
 
 alias ghs='gh copilot suggest'
 alias ghe='gh copilot explain'
+
+alias deved='cd ~/developed-demo/ && nvim'
