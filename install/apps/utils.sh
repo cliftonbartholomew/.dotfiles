@@ -13,4 +13,4 @@ yes | sudo apt install fd-find # telescope dependency
 yes | sudo apt install zip # for zipping files
 yes | sudo apt install luarocks # lua package manager
 yes | sudo apt install cmake # dependency for luaformatter
-
+yes | sudo apt install fzf # fuzzy finder
