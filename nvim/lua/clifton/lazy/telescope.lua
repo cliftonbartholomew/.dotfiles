@@ -25,6 +25,7 @@ return {
 					qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 				},
 			})
+
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Search file names" })
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep file contents" })
