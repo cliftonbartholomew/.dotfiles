@@ -1,5 +1,5 @@
 # tools
-alias nvim='/bin/nvim-linux64/bin/nvim'
+alias nvim='/bin/nvim-linux-x86_64/bin/nvim'
 alias python='python3'
 alias pip='pip3'
 
