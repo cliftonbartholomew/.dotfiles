@@ -37,4 +37,3 @@ vim.keymap.set({ "n", "x" }, "<C-l>", "<C-W><C-l>", { noremap = true, desc = "mo
 
 -- Copilot
 vim.api.nvim_set_keymap("n", "<leader>cc", ":CopilotChat<CR>", { noremap = true, silent = true })
-
