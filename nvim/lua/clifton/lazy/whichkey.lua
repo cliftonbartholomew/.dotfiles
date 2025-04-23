@@ -8,12 +8,12 @@ return {
             vim.o.timeoutlen = 300
         end,
         config = function()
-            require("which-key").register({
-                { "leader>f", name = "telescope" },
-                { "leader>c", name = "copilot" },
-                { "leader>g", name = "git" },
-                { "leader>r", name = "lsp" },
-                { "leader>n", name = "nvim-tree" },
+            require("which-key").add({
+                { "<leader>f", group = "telescope" },
+                { "<leader>c", group = "copilot" },
+                { "<leader>g", group = "git" },
+                { "<leader>r", group = "lsp" },
+                { "<leader>n", group = "nvim-tree" },
             })
         end,
         opts = {
