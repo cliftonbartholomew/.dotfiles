@@ -9,13 +9,11 @@ return {
         end,
         config = function()
             require("which-key").register({
-                ["<leader>"] = {
-                    f = { name = "telescope" },
-                    c = { name = "copilot" },
-                    g = { name = "git" },
-                    r = { name = "lsp" },
-                    n = { name = "nvim-tree" },
-                },
+                { "leader>f", name = "telescope" },
+                { "leader>c", name = "copilot" },
+                { "leader>g", name = "git" },
+                { "leader>r", name = "lsp" },
+                { "leader>n", name = "nvim-tree" },
             })
         end,
         opts = {
