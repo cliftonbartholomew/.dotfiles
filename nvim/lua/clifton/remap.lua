@@ -1,3 +1,6 @@
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
+
 -- move rows up and down
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", { desc = "move selected lines down" })
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv", { desc = "move selected lines up" })
@@ -29,11 +32,19 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { noremap = true, desc = "yan
 -- escape with jk
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "escape with jk" })
 
--- Easier windows navigations
-vim.keymap.set({ "n", "x" }, "<C-h>", "<C-W><C-h>", { noremap = true, desc = "move to left window" })
-vim.keymap.set({ "n", "x" }, "<C-j>", "<C-W><C-j>", { noremap = true, desc = "move to down window" })
-vim.keymap.set({ "n", "x" }, "<C-k>", "<C-W><C-k>", { noremap = true, desc = "move to up window" })
-vim.keymap.set({ "n", "x" }, "<C-l>", "<C-W><C-l>", { noremap = true, desc = "move to right window" })
+-- Diagnostic keymaps
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
--- Copilot
-vim.api.nvim_set_keymap("n", "<leader>cc", ":CopilotChat<CR>", { noremap = true, silent = true })
+-- TIP: Disable arrow keys in normal mode
+vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+
+-- Keybinds to make split navigation easier.
+--  Use CTRL+<hjkl> to switch between windows
+--  See `:help wincmd` for a list of all window commands
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })

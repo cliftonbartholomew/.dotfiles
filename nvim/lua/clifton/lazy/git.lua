@@ -8,34 +8,45 @@ return {
 				"n",
 				"<leader>gl",
 				":Git pull<CR>",
-				{ noremap = true, silent = true, desc = "git pull" }
+				{ noremap = true, silent = true, desc = "git pul[L]" }
 			)
 			-- push
 			vim.api.nvim_set_keymap(
 				"n",
 				"<leader>gp",
 				":Git push<CR>",
-				{ noremap = true, silent = true, desc = "git push" }
+				{ noremap = true, silent = true, desc = "git [P]ush" }
 			)
 
 			-- status
-			vim.api.nvim_set_keymap("n", "<leader>gg", ":G<CR>", { noremap = true, silent = true, desc = "git status" })
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>gs",
+				":G<CR>",
+				{ noremap = true, silent = true, desc = "git [S]tatus" }
+			)
 
 			-- diff
 			vim.api.nvim_set_keymap(
 				"n",
 				"<leader>gd",
 				":Gvdiffsplit<CR>",
-				{ noremap = true, silent = true, desc = "git diff" }
+				{ noremap = true, silent = true, desc = "git [D]iff" }
 			)
 		end,
 	},
 
-	-- git signs
+	-- See `:help gitsigns` to understand what the configuration keys do
 	{
 		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup({})
-		end,
+		opts = {
+			signs = {
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
+			},
+		},
 	},
 }
