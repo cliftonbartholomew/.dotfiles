@@ -5,7 +5,6 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local FormatOnSave = augroup("FormatOnSave", {})
 local YankGroup = augroup("HighlightYank", {})
-local CopilotGroup = augroup("Copilot", {})
 local LspGroup = augroup("Lsp", {})
 
 -- highlight yanked text
@@ -32,11 +31,4 @@ autocmd({ "BufWritePre" }, {
 	group = FormatOnSave,
 	pattern = "*",
 	command = [[lua vim.lsp.buf.format()]],
-})
-
--- remove relative line numbers and line numbers in copilot
-autocmd("BufEnter", {
-	group = CopilotGroup,
-	pattern = "copilot-chat",
-	command = [[set norelativenumber nonu]],
 })
