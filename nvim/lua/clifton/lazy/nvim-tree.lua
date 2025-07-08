@@ -13,13 +13,7 @@ return {
 				"n",
 				"<leader>nn",
 				":NvimTreeToggle<CR>",
-				{ noremap = true, silent = true, desc = "toggle NvimTree" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>nf",
-				":NvimTreeFindFile<CR>",
-				{ noremap = true, silent = true, desc = "find file in NvimTree" }
+				{ noremap = true, silent = true, desc = "toggle [N]vimTree" }
 			)
 		end,
 	},
