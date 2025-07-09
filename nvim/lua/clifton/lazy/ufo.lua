@@ -1,4 +1,5 @@
 return {
+	-- used for modern folding functionality
 	{
 		"kevinhwang91/nvim-ufo",
 		dependencies = "kevinhwang91/promise-async",

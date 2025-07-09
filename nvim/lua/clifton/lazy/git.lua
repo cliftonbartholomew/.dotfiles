@@ -8,14 +8,14 @@ return {
 				"n",
 				"<leader>gl",
 				":Git pull<CR>",
-				{ noremap = true, silent = true, desc = "git pul[L]" }
+				{ noremap = true, silent = true, desc = "[G]it pul[L]" }
 			)
 			-- push
 			vim.api.nvim_set_keymap(
 				"n",
 				"<leader>gp",
 				":Git push<CR>",
-				{ noremap = true, silent = true, desc = "git [P]ush" }
+				{ noremap = true, silent = true, desc = "[G]it [P]ush" }
 			)
 
 			-- status
@@ -23,7 +23,7 @@ return {
 				"n",
 				"<leader>gs",
 				":G<CR>",
-				{ noremap = true, silent = true, desc = "git [S]tatus" }
+				{ noremap = true, silent = true, desc = "[G]it [S]tatus" }
 			)
 
 			-- diff
@@ -31,7 +31,7 @@ return {
 				"n",
 				"<leader>gd",
 				":Gvdiffsplit<CR>",
-				{ noremap = true, silent = true, desc = "git [D]iff" }
+				{ noremap = true, silent = true, desc = "[G]it [D]iff" }
 			)
 		end,
 	},
