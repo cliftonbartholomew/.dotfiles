@@ -1,5 +1,4 @@
 return {
-	-- ~/.config/nvim/lua/plugins/copilot.lua
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -26,33 +25,32 @@ return {
 						accept = "<CR>", -- accept a suggestion
 						refresh = "gr", -- reload suggestions
 						jump_next = "]]",
-						jump_prev = "[[",
 					},
+					jump_prev = "[[",
 				},
 			})
 		end,
 	},
-	--
-	-- ~/.config/nvim/lua/plugins/copilot-chat.lua
 	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		cmd = { "CopilotChat", "CopilotChatToggle" },
+		"yetone/avante.nvim",
 		dependencies = {
-			{ "zbirenbaum/copilot.lua" }, -- required backend
-			{ "nvim-lua/plenary.nvim" }, -- utility
-		},
-		opts = {
-			window = {
-				layout = "vertical", -- or 'float' or 'horizontal'
-				width = 0.5,
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- The below dependencies are optional,
+			"echasnovski/mini.pick", -- for file_selector provider mini.pick
+			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+			"ibhagwan/fzf-lua", -- for file_selector provider fzf
+			"stevearc/dressing.nvim", -- for input provider dressing
+			"folke/snacks.nvim", -- for input provider snacks
+			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = { file_types = { "markdown", "Avante" } },
+				ft = { "markdown", "Avante" },
 			},
 		},
-		keys = {
-			{ "<leader>cc", "<cmd>CopilotChat<cr>", desc = "Copilot Chat" },
-			{ "<leader>ce", "<cmd>CopilotChatExplain<cr>", desc = "Explain code" },
-			{ "<leader>cf", "<cmd>CopilotChatFix<cr>", desc = "Fix code" },
-			{ "<leader>cr", "<cmd>CopilotChatRefactor<cr>", desc = "Refactor code" },
-			{ "<leader>ct", "<cmd>CopilotChatTests<cr>", desc = "Generate tests" },
-		},
+		build = "make",
+		opts = { provider = "copilot" },
 	},
 }
