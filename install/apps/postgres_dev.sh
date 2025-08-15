@@ -8,7 +8,7 @@ echo "###############################################"
 echo ""
 echo ""
 yes | sudo apt install postgresql postgresql-contrib
-sudo service postgresql start
+sudo service postgresql start # wsl command (no systemctl)
 
 # distributions should create their own postgres user and database
 # echo "Enter the postgres username: "

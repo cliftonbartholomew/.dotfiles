@@ -1,5 +1,33 @@
 # Linux Development Setup
 
+On client (dev machine), generate shh key:
+```bash
+ssh-keygen -t ed25519 -C "cliftonbartholomew@gmail.com"
+```
+
+Copy ssh key to server (password is prompted):
+```bash
+ssh-copy-id clifton@102.130.115.69 # change ip
+```
+
+edit ssh config on client:
+```bash
+nvim ~/.ssh/config
+```
+
+add server to config for easy ssh:
+```bash
+Host production
+    HostName 102.130.115.69
+    User clifton
+    Port 22
+```
+
+ssh into server:
+```bash
+ssh production
+```
+
 Add a new user with a home directory and sudo access:
 ```bash
 useradd clifton --shell /bin/bash
@@ -14,8 +42,7 @@ Switch to that user:
 su - clifton
 ```
 
-
-Generate an ssh public/private key:
+Generate an ssh public/private key (this time for github and server):
 ```bash
 ssh-keygen -t rsa -b 4096 -C "cliftonbartholomew@gmail.com"
 ```
@@ -31,10 +58,9 @@ sudo apt-get update
 sudo apt install git
 ```
 
-
 install .dotfiles
 ```bash
-git clone git@github.com:cliftonbartholomew/.dotfiles.git 
+git clone git@github.com:cliftonbartholomew/.dotfiles.git
 ```
 
 run setup files

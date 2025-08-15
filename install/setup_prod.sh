@@ -16,3 +16,7 @@ source ~/.dotfiles/install/apps/nginx.sh
 source ~/.dotfiles/install/apps/daphne.sh
 source ~/.dotfiles/install/apps/postgres_prod.sh
 source ~/.dotfiles/install/apps/ufw.sh # do this last (blocks ssh)
+
+# hardening
+source ~/.dotfiles/install/hardening/ssh.sh
+# source ~/.dotfiles/install/hardening/ufw.sh

@@ -29,7 +29,6 @@ echo "install apps"
 source ~/.dotfiles/install/apps/utils.sh # must be first
 source ~/.dotfiles/install/apps/neovim.sh
 source ~/.dotfiles/install/apps/python.sh
-source ~/.dotfiles/install/apps/nodejs.sh
 
 echo "create ~/.venv"
 mkdir ~/.venv
