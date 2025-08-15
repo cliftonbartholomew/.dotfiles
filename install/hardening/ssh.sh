@@ -4,10 +4,6 @@ set -euo pipefail
 SSHD_CONFIG="/etc/ssh/sshd_config"
 BACKUP="${SSHD_CONFIG}.$(date +%Y%m%d-%H%M%S).bak"
 
-# Optional: override via env
-PORT="${PORT:-}"                 # e.g. PORT=2222
-ALLOW_USERS="${ALLOW_USERS:-}"   # e.g. ALLOW_USERS="clifton"
-
 echo "[*] Backing up $SSHD_CONFIG -> $BACKUP"
 sudo cp "$SSHD_CONFIG" "$BACKUP"
 
@@ -39,18 +35,6 @@ ensure_opt LoginGraceTime                 20
 # Misc security
 ensure_opt X11Forwarding                  no
 ensure_opt LogLevel                       VERBOSE
-
-# Optional: custom port
-if [[ -n "$PORT" ]]; then
-  ensure_opt Port "$PORT"
-  echo "    - Port set to $PORT"
-fi
-
-# Optional: restrict users
-if [[ -n "$ALLOW_USERS" ]]; then
-  ensure_opt AllowUsers "$ALLOW_USERS"
-  echo "    - AllowUsers set to: $ALLOW_USERS"
-fi
 
 echo "[*] Testing SSH config syntax..."
 sudo sshd -t

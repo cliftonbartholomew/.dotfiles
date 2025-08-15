@@ -1,6 +1,13 @@
 # Linux Development Setup
 
-On client (dev machine), generate shh key:
+On client (dev machine), add shh key from vault:
+```bash
+mkdir .ssh
+touch .ssh/id_rsa
+touch .ssh/id_rsa.pub
+```
+
+Or make a new one:
 ```bash
 ssh-keygen -t ed25519 -C "cliftonbartholomew@gmail.com"
 ```
@@ -10,7 +17,7 @@ Copy ssh key to server (password is prompted):
 ssh-copy-id clifton@102.130.115.69 # change ip
 ```
 
-edit ssh config on client:
+edit ssh config on client (dev machine):
 ```bash
 nvim ~/.ssh/config
 ```
