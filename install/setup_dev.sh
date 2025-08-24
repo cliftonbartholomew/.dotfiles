@@ -29,3 +29,8 @@ echo "  User clifton" >> ~/.ssh/config
 echo "  Port 22" >> ~/.ssh/config
 echo "" >> ~/.ssh/config
 
+echo "Host homeserver" >> ~/.ssh/config
+echo "  Hostname 102.22.249.166" >> ~/.ssh/config
+echo "  User clifton" >> ~/.ssh/config
+echo "  Port 22" >> ~/.ssh/config
+echo "" >> ~/.ssh/config
