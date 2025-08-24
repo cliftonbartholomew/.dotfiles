@@ -12,11 +12,12 @@ echo ""
 echo ""
 
 # install apps
-source ~/.dotfiles/install/apps/nginx.sh
-source ~/.dotfiles/install/apps/daphne.sh
-source ~/.dotfiles/install/apps/postgres_prod.sh
-source ~/.dotfiles/install/apps/fail2ban.sh
-source ~/.dotfiles/install/apps/ufw.sh # do this last (blocks ssh)
+source ~/.dotfiles/install/apps/nginx.sh # web server
+source ~/.dotfiles/install/apps/daphne.sh # asgi server
+source ~/.dotfiles/install/apps/postgres_prod.sh # production db
 
 # hardening
-source ~/.dotfiles/install/hardening/ssh.sh
+source ~/.dotfiles/install/security/fail2ban.sh # do this first (prevents brute force attacks)
+source ~/.dotfiles/install/security/unattended_upgrades.sh # automatic security updates
+source ~/.dotfiles/install/security/ufw.sh # do this last (blocks ssh)
+source ~/.dotfiles/install/security/harden_ssh.sh
