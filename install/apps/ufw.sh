@@ -8,6 +8,17 @@ echo "###############################################"
 echo ""
 echo ""
 yes | sudo apt install ufw
-sudo ufw allow ssh #allow ssh from anywhere
+
+# allow ssh and web
+sudo ufw allow ssh
 sudo ufw allow 'Nginx Full'
+
+# Set sane defaults
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# enable logging
+sudo ufw logging on
+
+# enable firewall
 sudo ufw enable
